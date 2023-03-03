@@ -1,18 +1,24 @@
 .tx-indexedsearch-autocomplete {
-	background: #F5F5F5;
+	background: #fff;
 	width: 200px; /* This value is set in the javascript code, to match the width of the search box */
 	cursor: pointer;
 	position: absolute;
 	left: 0;
-	font-size: 90%;
+	font-size: 1.2rem;
 	z-index: 101;
+	width: 100%;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
 }
 .tx-indexedsearch-autocomplete ul {
 	list-style-position: outside;
 	list-style: none;
 	padding: 0;
 	margin: 0;
-	border: 1px solid #AAAAAA;
+	border: 0px solid #AAAAAA;
 }
 .tx-indexedsearch-autocomplete ul li.even {
 	background: #E5E5E5;
@@ -21,7 +27,7 @@
 	background: #FFFFFF;
 }
 .tx-indexedsearch-autocomplete li {
-	padding: 2px 5px;
+	padding: 8px 5px;
 }
 .tx-indexedsearch-autocomplete a {
 	width: 100%;
@@ -32,3 +38,4 @@
 .tx-indexedsearch-autocomplete .highlighted {
 	background-color: #A7CDF0 !important;
 }
+.search-autocomplete-results { position: relative; }
