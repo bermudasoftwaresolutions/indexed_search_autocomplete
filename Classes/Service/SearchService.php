@@ -15,8 +15,10 @@
 
 namespace ID\IndexedSearchAutocomplete\Service;
 
+use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 
 /**
  * EntryController
@@ -33,8 +35,9 @@ class SearchService implements \TYPO3\CMS\Core\SingletonInterface
 
     public function searchAWord($arg)
     {
-        $languageId = $GLOBALS['TSFE']->sys_language_uid;
-        $configurationManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Configuration\\ConfigurationManagerInterface');
+        $languageAspect = GeneralUtility::makeInstance(Context::class)->getAspect('language');
+        $languageId = $languageAspect->getId();
+        $configurationManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(ConfigurationManagerInterface::class);
         $setting = $configurationManager->getConfiguration(
             \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT
         );
@@ -118,7 +121,8 @@ class SearchService implements \TYPO3\CMS\Core\SingletonInterface
 
     public function searchASite($arg)
     {
-        $languageId = $GLOBALS['TSFE']->sys_language_uid;
+        $languageAspect = GeneralUtility::makeInstance(Context::class)->getAspect('language');
+        $languageId = $languageAspect->getId();
         $configurationManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Configuration\\ConfigurationManagerInterface');
         $setting = $configurationManager->getConfiguration(
             \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FULL_TYPOSCRIPT

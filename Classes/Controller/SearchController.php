@@ -18,6 +18,8 @@ namespace ID\IndexedSearchAutocomplete\Controller;
 
 
 use ID\IndexedSearchAutocomplete\Service\SearchService;
+use Symfony\Component\HttpFoundation\Response;
+use TYPO3\CMS\Core\Http\HtmlResponse;
 use TYPO3\CMS\IndexedSearch\Domain\Repository\IndexSearchRepository;
 
 /**
@@ -69,5 +71,7 @@ class SearchController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
         foreach ($result as $key => $value) {
             $this->view->assign($key, $value);
         }
+
+        return new HtmlResponse($this->view->render());
     }
 }

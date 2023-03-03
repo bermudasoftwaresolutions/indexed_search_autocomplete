@@ -1,5 +1,5 @@
 <?php
-defined('TYPO3_MODE') or die();
+defined('TYPO3') or die();
 
 
 // Setup
@@ -34,7 +34,7 @@ defined('TYPO3_MODE') or die();
 
     // Register Application
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-        'ID.indexed_search_autocomplete',
+        'IndexedSearchAutocomplete',
         'Search',
         [
             \ID\IndexedSearchAutocomplete\Controller\SearchController::class => 'search',
