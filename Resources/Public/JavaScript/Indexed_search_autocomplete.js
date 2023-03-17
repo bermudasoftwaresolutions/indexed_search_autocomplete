@@ -108,7 +108,6 @@ IndexSearchAutoComplete.prototype.autocomplete = function(e, ref) {
                     // Search on click
                     if (soc) {
                         $input.closest('form').submit();
-                        console.log('soc');
                     }
                 } else {
                     window.location = $results.find('li.highlighted a.navigate-on-enter').attr('href');
